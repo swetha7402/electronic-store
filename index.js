@@ -163,7 +163,7 @@ myApp.post('/process',[
         var monitors = req.body.monitors;
         
         const vediocost = 49.98; // declaring costs for the items
-        const cameracost = 149.49;
+        const cameracost = 200.00;
         const monitorcost = 99.9
         var tax = 1.13; 
         var subtotal = vedio * vediocost + camera * cameracost + monitors * monitorcost; 
