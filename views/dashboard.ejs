@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASHBOARD</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+  <body>
+    <header>
+        <h1> Electronics</h1>
+        
+    </header>
+  
+     <nav>
+        <ul>
+             <li><a href="/login">LOGIN</a></li>
+             <li><a href="/">ADD NEW</a></li>
+             <li><a href="/dashboard">DASHBOARD</a></li>
+             <li><a href="/logout">LOGOUT</a></li>
+        </ul>
+     </nav>
+  <main>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Membership</th>
+                <th>vedio</th>
+                <th>camera</th>
+                <th>monitors</th>
+                <th>subtotal</th>
+                <th>total</th>
+                <th>View</th>
+                <th>Delete</th>
+            </tr>
+            <%
+                for(var elec of Elec){
+                    %>
+                        <tr>
+                            <td><a href="/print/<%= elec._id %>"><%=elec._id %></a></td>
+                            <td><%= elec.Name %></td>
+                            <td><%= elec.Membership %></td>
+                            <td><%= elec.vedio %></td>
+                            <td><%= elec.camera %></td>
+                            <td><%= elec.monitors %></td>
+                            <td><%= elec.subtotal %></td>
+                            <td><%= elec.tax %></td>
+                            <td><%= elec.total %></td>
+                            <td><a href="/view/<%= elec._id %>">VIEW</a></td>
+                            <td><a href="/delete/<%= elec._id %>">DELETE</a></td>
+                        </tr>
+                    <%
+                }
+            %>   
+        </table>
+  </main>
+  
+</body>
+</html>

@@ -1,0 +1,123 @@
+<%
+  var Name = '';
+  var Membership = '';
+  var vedio = '';
+  var camera = '';
+  var monitors = ''; 
+
+  var NameError = '';
+  var MembershipError = '';
+  var vedioError = '';
+  var cameraError = '';
+  var monitorError = '';
+
+  if(typeof(err) != 'undefined')
+  {
+    for(var error of err)
+    { 
+      switch(error.param){
+        case 'Name': Name = error.value;
+                     NameError = error.msg;
+                     break;
+        case 'monitors': monitors = error.value;
+                      monitorError = error.msg;
+                      break;
+        case 'Membership':  Membership = error.value;
+                             MembershipError = error.msg;
+                             break;
+        case 'vedio': vedio = error.value;
+                     vedioError = error.msg;
+                     break;  
+        case 'camera': camera = error.value;
+                     cameraError = error.msg;
+                     break;                                  
+      }
+    }
+  }
+%>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELECTRONIC SHOP</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+   <header>
+      <h1>ELECTRONIC SHOP</h1>
+      
+   </header>
+  
+
+   <nav>
+      <ul>
+           <li><a href="/">ADD NEW</a></li>
+           <li><a href="/dashboard">DASHBOARD</a></li>
+           <li><a href="/login">LOGIN</a></li>
+           <li><a href="/logout">LOGOUT</a></li>
+      </ul>
+   </nav>
+    
+   <main>
+    <header>
+        <h1>PURCHASE ITEMS</h1>
+    </header>
+    <form action="process" method="POST" enctype="multipart/form-data" >
+        <div >
+            <label for="Name"> Full Name : </label>
+            <input type="text" id="Name" name="Name" 
+            value="<%= Name %>">
+            <p class="error"><%= NameError %></p>
+          </div>
+          <div >
+            <label for="Membership">Membership Number : </label>
+            <input type="text" id="Membership" name="Membership" 
+           placeholder="A12-BC4-167" value="<%= Membership %>">
+            <p class="error"><%=MembershipError %></p>
+          </div>
+          <div>
+            <label for="vedio">Vedio Doorbells ($49.98each) : $</label>
+          <input
+          name="vedio"
+          id="vedio"
+          placeholder="xxx"
+          type="text"
+          value = "<%vedio %>">
+          <p class = "error"><%= vedioError %></p>
+          <br />
+        </div>
+        <div>
+        <label for="camera">Outdoor Cameras($149.49each): $</label>
+        <input
+          name="camera"
+          id="camera"
+          placeholder="xxx"
+          type="text"
+          value="<% camera %>">
+          <p class="error"><%= cameraError %></p>
+        <br />
+         </div>
+         <div>
+          <label for="monitors">Baby Monitors($99.99each): $</label>
+          <input
+            name="monitors"
+            id="monitors"
+            placeholder="xxx"
+            type="text"
+            value="<% monitors %>">
+            <p class="error"><%= monitorError %></p>
+          <br />
+           </div>
+         
+          <div >
+            <input type="submit" value="SUBMIT">
+          </div>
+    </form>
+   </main>
+   
+</body>
+</html>
